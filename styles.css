@@ -93,7 +93,7 @@ body:before {
   top: -115vh;
   width: 1ch;
   color: inherit;
-  opacity: 0.5;
+  opacity: 0.3;
   white-space: pre;
   animation: binary-rain linear infinite;
 }
@@ -245,28 +245,6 @@ nav {
   height: 42px;
   font-size: 20px;
   cursor: pointer;
-}
-
-.motion-toggle {
-  display: none;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  background: var(--surface);
-  color: var(--ink);
-  font:
-    9px "DM Mono",
-    monospace;
-  cursor: pointer;
-}
-
-.motion-control-visible .motion-toggle {
-  display: inline-flex;
-}
-
-.motion-toggle:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
 }
 
 .hero {
@@ -1014,29 +992,6 @@ footer {
 
   .section-head > .eyebrow {
     display: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html:not(.motion-enabled),
-  html:not(.motion-enabled) *,
-  html:not(.motion-enabled) *::before,
-  html:not(.motion-enabled) *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  html:not(.motion-enabled) .reveal,
-  html:not(.motion-enabled).js .reveal,
-  html:not(.motion-enabled).js .hero-copy .eyebrow,
-  html:not(.motion-enabled).js .hero-copy h1,
-  html:not(.motion-enabled).js .hero-copy .intro,
-  html:not(.motion-enabled).js .hero-copy .button {
-    opacity: 1;
-    transform: none;
-    animation: none;
   }
 }
 
