@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Patrick Andre C. Sarania, Web Developer.">
+  <title>Patrick Andre C. Sarania — Web Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="grid"></div>
+  <div class="shell">
+    <nav><a class="logo" href="#top">PATRICK ANDRE C. SARANIA</a>
+      <div class="links" id="site-links"><a href="#about">About</a><a href="#work">Selected work</a><a href="#contact">Contact</a></div><button class="menu" aria-label="Open menu" aria-controls="site-links" aria-expanded="false">☰</button>
+    </nav>
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><i class="pulse"></i> Available for select projects — 2026</div>
+          <h1>I make digital <em>ideas</em> feel alive.</h1>
+          <p class="intro">Independent web developer crafting memorable interfaces and brand experiences at the intersection of design, motion and technology.</p><a class="button" href="#work">Explore my work <span>↘</span></a>
+        </div>
+        <div class="hero-art">
+          <div class="orb"></div>
+          <div class="tag-orbit">
+            <div class="tag-point one"><span class="tag">✦ CREATIVE CODE</span></div>
+            <div class="tag-point two"><span class="tag">01 / DIGITAL FUTURES</span></div>
+            <div class="tag-point three"><span class="tag">SYSTEMS + STORIES</span></div>
+          </div>
+        </div>
+        <div class="scroll-note">SCROLL TO DISCOVER ↓</div>
+      </section>
+      <section id="about" class="about reveal">
+        <div>
+          <div class="section-number">01 — ABOUT</div>
+          <h2>Human touch,<br>digital pulse.</h2>
+        </div>
+        <div>
+          <p>I’m Patrick Andre C. Sarania, a web developer who turns ambitious ideas into <strong>experiences people want to stay in.</strong> I care about sharp thinking, useful beauty, and the tiny details that make a product feel inevitable.</p>
+          <div class="facts"><span class="fact">BASED IN NEW YORK</span><span class="fact">8+ YEARS EXPERIENCE</span><span class="fact">WORKING GLOBALLY</span></div>
+        </div>
+      </section>
+      <section id="work">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-number">02 — SELECTED WORK</div>
+            <h2>Signals from the studio.</h2>
+          </div><span class="eyebrow">2023 — 2026</span>
+        </div>
+        <div class="projects">
+          <a class="project reveal" href="#contact">
+            <div><small>BRAND PLATFORM / 2026</small>
+              <h3>Nova Industries</h3>
+              <p>Building a speculative identity for a new generation of material science.</p>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+          <a class="project reveal" href="#contact">
+            <div><small>WEB EXPERIENCE / 2025</small>
+              <h3>Afterlight</h3>
+              <p>An immersive digital home for a boundary-pushing architecture practice.</p>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+          <a class="project reveal" href="#contact">
+            <div><small>PRODUCT DESIGN / 2025</small>
+              <h3>Orbit Finance</h3>
+              <p>Making financial clarity feel as effortless as a conversation.</p>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+          <a class="project reveal" href="#contact">
+            <div><small>CAMPAIGN / 2024</small>
+              <h3>Kinfolk Earth</h3>
+              <p>A vivid, hopeful campaign designed to inspire collective action.</p>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+        </div>
+      </section>
+      <section class="reveal">
+        <div class="section-head">
+          <div>
+            <div class="section-number">03 — EXPERIENCE</div>
+            <h2>A few places I’ve helped shape.</h2>
+          </div>
+        </div>
+        <div class="experience">
+          <div class="job">
+            <h3>Independent Studio</h3>
+            <p>Creative Director & Developer</p>
+            <p>Global / Remote</p><time>2022 — NOW</time>
+          </div>
+          <div class="job">
+            <h3>Monument</h3>
+            <p>Senior Digital Designer</p>
+            <p>New York, NY</p><time>2020 — 2022</time>
+          </div>
+          <div class="job">
+            <h3>Studio Current</h3>
+            <p>Interaction Designer</p>
+            <p>Brooklyn, NY</p><time>2018 — 2020</time>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="contact reveal">
+        <div class="eyebrow" style="justify-content:center">04 — LET'S CONNECT</div>
+        <h2>Have an idea with <span>energy?</span></h2>
+        <p class="intro" style="margin:0 auto 30px">I’m always keen to hear about ambitious projects, kind people, and strange new possibilities.</p><a class="button" href="mailto:pa.sarania@spamast.edu.ph">pa.sarania@spamast.edu.ph <span>↗</span></a>
+      </section>
+    </main>
+    <footer><span>© <span id="year">2026</span> PATRICK ANDRE C. SARANIA</span><span>DESIGNED WITH INTENT / BUILT WITH CURIOSITY</span><span>NYC · 40.7128° N</span></footer>
+  </div>
+  <script>
+    document.documentElement.classList.add('js');
+    document.querySelector('#year').textContent = new Date().getFullYear();
+    const menuButton = document.querySelector('.menu');
+    const links = document.querySelector('.links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+      links.classList.toggle('open', !isOpen)
+    });
+    links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open menu');
+      links.classList.remove('open')
+    }));
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => entry.target.classList.toggle('show', entry.isIntersecting)), {
+        threshold: .12
+      });
+      document.querySelectorAll('.reveal').forEach(element => observer.observe(element))
+    } else {
+      document.querySelectorAll('.reveal').forEach(element => element.classList.add('show'))
+    }
+    const orb = document.querySelector('.orb');
+    const hero = document.querySelector('.hero');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let morphFrame = 0;
+    const updateOrbMorph = () => {
+      morphFrame = 0;
+      if (reduceMotion.matches) return;
+      const progress = Math.max(0, Math.min(1, window.scrollY / hero.offsetHeight));
+      const shift = progress * 12;
+      orb.style.borderRadius = `${50-shift}% ${50+shift}% ${50-shift*.65}% ${50+shift*.65}% / ${50+shift*.8}% ${50-shift*.8}% ${50+shift*.5}% ${50-shift*.5}%`;
+      orb.style.setProperty('--morph-turn', `${progress*55}deg`)
+    };
+    const requestOrbMorph = () => {
+      if (!morphFrame) morphFrame = window.requestAnimationFrame(updateOrbMorph)
+    };
+    window.addEventListener('scroll', requestOrbMorph, {
+      passive: true
+    });
+    window.addEventListener('resize', requestOrbMorph);
+    reduceMotion.addEventListener('change', requestOrbMorph);
+    updateOrbMorph();
+  </script>
+</body>
+
+</html>
