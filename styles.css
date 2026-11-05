@@ -93,7 +93,7 @@ body:before {
   top: -115vh;
   width: 1ch;
   color: inherit;
-  opacity: 0.8;
+  opacity: 0.5;
   white-space: pre;
   animation: binary-rain linear infinite;
 }
