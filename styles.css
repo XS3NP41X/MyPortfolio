@@ -44,6 +44,57 @@
       pointer-events: none;
     }
 
+    .binary {
+      position: fixed;
+      inset: -10% 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+      color: var(--accent);
+      font: 10px/1.8 "DM Mono", monospace;
+      letter-spacing: .45em;
+      mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+    }
+
+    .binary-column {
+      position: absolute;
+      top: 4%;
+      width: 16%;
+      height: 100%;
+      overflow: hidden;
+      color: inherit;
+      opacity: .09;
+      line-height: 3.4;
+      overflow-wrap: anywhere;
+      animation: binary-drift 34s linear infinite;
+    }
+
+    .binary-column:nth-child(1) {
+      left: 6%;
+    }
+
+    .binary-column:nth-child(2) {
+      left: 31%;
+      top: -18%;
+      opacity: .055;
+      animation-duration: 42s;
+      animation-direction: reverse;
+    }
+
+    .binary-column:nth-child(3) {
+      right: 29%;
+      opacity: .07;
+      animation-duration: 39s;
+    }
+
+    .binary-column:nth-child(4) {
+      right: 5%;
+      top: -16%;
+      opacity: .05;
+      animation-duration: 48s;
+      animation-direction: reverse;
+    }
+
     .shell {
       width: min(1160px, calc(100% - 56px));
       margin: auto;
@@ -103,6 +154,26 @@
       height: 42px;
       font-size: 20px;
       cursor: pointer;
+    }
+
+    .motion-toggle {
+      display: none;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface);
+      color: var(--ink);
+      font: 9px "DM Mono", monospace;
+      cursor: pointer;
+    }
+
+    .motion-control-visible .motion-toggle {
+      display: inline-flex;
+    }
+
+    .motion-toggle:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
     }
 
     .hero {
@@ -641,6 +712,12 @@
       }
     }
 
+    @keyframes binary-drift {
+      to {
+        transform: translateY(28%);
+      }
+    }
+
     @keyframes shimmer {
 
       50%,
@@ -792,19 +869,25 @@
     }
 
     @media(prefers-reduced-motion:reduce) {
-
-      *,
-      *::before,
-      *::after {
+      html:not(.motion-enabled),
+      html:not(.motion-enabled) *,
+      html:not(.motion-enabled) *::before,
+      html:not(.motion-enabled) *::after {
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
         transition-duration: .01ms !important;
       }
 
-      .reveal {
+      html:not(.motion-enabled) .reveal,
+      html:not(.motion-enabled).js .reveal,
+      html:not(.motion-enabled).js .hero-copy .eyebrow,
+      html:not(.motion-enabled).js .hero-copy h1,
+      html:not(.motion-enabled).js .hero-copy .intro,
+      html:not(.motion-enabled).js .hero-copy .button {
         opacity: 1;
         transform: none;
+        animation: none;
       }
     }
 
@@ -816,17 +899,4 @@
     .js .reveal.show {
       opacity: 1;
       transform: none;
-    }
-
-    @media(prefers-reduced-motion:reduce) {
-
-      .js .reveal,
-      .js .hero-copy .eyebrow,
-      .js .hero-copy h1,
-      .js .hero-copy .intro,
-      .js .hero-copy .button {
-        opacity: 1;
-        transform: none;
-        animation: none;
-      }
     }

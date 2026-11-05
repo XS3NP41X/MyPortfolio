@@ -14,9 +14,15 @@
 
 <body>
   <div class="grid"></div>
+  <div class="binary" aria-hidden="true">
+    <span class="binary-column">10101 01010<br>11001 00101<br>10110 01001<br>01101 10010<br>10101 00110<br>11010 01001<br>10101 01100<br>01010 11001<br>00101 10110<br>01001 01101<br>10010 10101<br>00110 11010</span>
+    <span class="binary-column">01010 11001<br>00101 10110<br>10010 10101<br>01100 01010<br>11001 00101<br>10110 01001<br>01101 10010<br>10101 00110<br>11010 01001<br>10101 01100<br>01010 11001<br>00101 10110</span>
+    <span class="binary-column">11010 01001<br>10101 01100<br>01010 11001<br>00101 10110<br>01001 01101<br>10010 10101<br>00110 11010<br>01010 11001<br>00101 10110<br>10010 10101<br>01100 01010<br>11001 00101</span>
+    <span class="binary-column">00101 10110<br>01001 01101<br>10010 10101<br>00110 11010<br>01001 10101<br>01100 01010<br>11001 00101<br>10110 01001<br>01101 10010<br>10101 00110<br>11010 01001<br>10101 01100</span>
+  </div>
   <div class="shell">
     <nav><a class="logo" href="#top">PATRICK ANDRE C. SARANIA</a>
-      <div class="links" id="site-links"><a href="#about">About</a><a href="#work">Selected work</a><a href="#contact">Contact</a></div><button class="menu" aria-label="Open menu" aria-controls="site-links" aria-expanded="false">☰</button>
+      <div class="links" id="site-links"><a href="#about">About</a><a href="#work">Selected work</a><a href="#contact">Contact</a></div><button class="motion-toggle" type="button" aria-pressed="false">Play animations</button><button class="menu" aria-label="Open menu" aria-controls="site-links" aria-expanded="false">☰</button>
     </nav>
     <main id="top">
       <section class="hero">
@@ -143,10 +149,20 @@
     const orb = document.querySelector('.orb');
     const hero = document.querySelector('.hero');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const motionToggle = document.querySelector('.motion-toggle');
+    let motionOverride = false;
+    document.documentElement.classList.toggle('motion-control-visible', reduceMotion.matches);
+    motionToggle.addEventListener('click', () => {
+      motionOverride = !motionOverride;
+      document.documentElement.classList.toggle('motion-enabled', motionOverride);
+      motionToggle.setAttribute('aria-pressed', String(motionOverride));
+      motionToggle.textContent = motionOverride ? 'Pause animations' : 'Play animations';
+      requestOrbMorph()
+    });
     let morphFrame = 0;
     const updateOrbMorph = () => {
       morphFrame = 0;
-      if (reduceMotion.matches) return;
+      if (reduceMotion.matches && !motionOverride) return;
       const progress = Math.max(0, Math.min(1, window.scrollY / hero.offsetHeight));
       const shift = progress * 12;
       orb.style.borderRadius = `${50-shift}% ${50+shift}% ${50-shift*.65}% ${50+shift*.65}% / ${50+shift*.8}% ${50-shift*.8}% ${50+shift*.5}% ${50-shift*.5}%`;
@@ -159,7 +175,10 @@
       passive: true
     });
     window.addEventListener('resize', requestOrbMorph);
-    reduceMotion.addEventListener('change', requestOrbMorph);
+    reduceMotion.addEventListener('change', () => {
+      document.documentElement.classList.toggle('motion-control-visible', reduceMotion.matches);
+      requestOrbMorph()
+    });
     updateOrbMorph();
   </script>
 </body>
